@@ -1,0 +1,46 @@
+﻿@using OnePageProject1.ViewModels.Post
+@{
+    ViewData["Title"] = "Create";
+}
+
+@model CreatePostVM
+
+<div class="content-wrapper " style="padding-top:20px">
+    <section class="content container">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card card-primary">
+
+                        <form method="post" enctype="multipart/form-data">
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label asp-for="Title"></label>
+                                    <input asp-for="Title" class="form-control" placeholder="Title">
+                                    <span asp-validation-for="Title" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Description" ></label>
+                                    <input asp-for="Description" class="form-control" placeholder="Description">
+                                    <span asp-validation-for="Description" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Image" ></label>
+                                    <div class="input-group">
+                                        <input class="form-control" asp-for="Image" >
+                                    </div>
+                                </div>
+                          
+                            </div>
+
+                            <div class="card-footer">
+                                <button class="btn btn-primary">Create</button>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

@@ -1,0 +1,95 @@
+﻿@using OnePageProject1.Models
+@{
+    ViewData["Title"] = "Index";
+}
+
+@model ICollection<Post>
+
+<div class="wrapper">
+    <div class="content-wrapper" style="padding-top:20px">
+        <section class="content ">
+            <div class="card container">
+                <div class="card-header">
+                    <h3 class="card-title">Posts</h3>
+
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                            <i class="fas fa-minus"></i>
+                        </button>
+                        @*<button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
+                        <i class="fas fa-times"></i>
+                        </button>*@
+                    </div>
+                </div>
+                <div class="card-body p-0">
+                    <table class="table table-striped projects">
+                        <thead>
+                            <tr>
+                                <th style="width: 1%">
+                                    #
+                                </th>
+                                <th style="width: 10%">
+                                    Title
+                                </th>
+                                <th style="width: 30%">
+                                    Description
+                                </th>
+                                <th style="width: 20%">
+                                    CreatedAt
+                                <th/>
+                                <th style="width: 30%">
+                                    Image
+                                </th>
+
+                                <th>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{
+                                int count = 0;
+                            }
+
+                            @foreach(var post in Model ?? new List<Post>())
+                            {
+                                count++;
+                            <tr>
+                                <td>@count</td>
+                                <td>@post.Title</td>
+                                <td>@post.Description.Substring(0,10)...</td>
+                                <td>@post.CreatedAt</td>
+                                   
+                                <td>
+                                        <img alt="Image" class="table-avatar" src="~/assets/images/post/@post.Image">
+                                </td>
+
+                                <td class="project-actions text-right">
+                                    <a class="btn btn-primary btn-sm" asp-controller="Post" asp-action="View" asp-route-id="@post.Id">
+                                        <i class="fas fa-folder">
+                                        </i>
+                                        View
+                                    </a>
+                                        <a class="btn btn-info btn-sm" asp-controller="Post" asp-action="Update" asp-route-id="@post.Id">
+                                        <i class="fas fa-pencil-alt">
+                                        </i>
+                                        Edit
+                                    </a>
+                                        <a class="btn btn-danger btn-sm" asp-controller="Post" asp-action="Delete" asp-route-id="@post.Id">
+                                        <i class="fas fa-trash">
+                                        </i>
+                                        Delete
+                                    </a>
+                                </td>
+
+                            </tr>
+
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+

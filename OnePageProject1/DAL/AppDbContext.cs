@@ -1,0 +1,12 @@
+﻿using Microsoft.EntityFrameworkCore;
+using OnePageProject1.Models;
+
+namespace OnePageProject1.DAL
+{
+    public class AppDbContext:DbContext
+    {
+        public AppDbContext(DbContextOptions<AppDbContext> options):base(options) { }
+
+        public DbSet<Post> Posts { get; set; }
+    }
+}
